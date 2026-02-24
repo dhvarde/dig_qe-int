@@ -8,9 +8,9 @@ export default class Page {
   get paths() {
     return {
       "Basic Auth": "basic_auth",
-      Checkboxes: "checkboxes",
-      Dropdown: "dropdown",
-      inputs: "inputs",
+      "Checkboxes": "checkboxes",
+      "Dropdown": "dropdown",
+      "Inputs": "inputs",
 
       "A/B Testing": "abtest",
       "Add/Remove Elements": "add_remove_elements/",
@@ -30,10 +30,10 @@ export default class Page {
       "Floating Menu": "floating_menu",
       "Forgot Password": "forgot_password",
       "Form Authentication": "login",
-      Frames: "frames",
-      Geolocation: "geolocation",
+      "Frames": "frames",
+      "Geolocation": "geolocation",
       "Horizontal Slider": "horizontal_slider",
-      Hovers: "hovers",
+      "Hovers": "hovers",
       "Infinite Scroll": "infinite_scroll",
       "JQuery UI Menus": "jqueryui/menu",
       "JavaScript Alerts": "javascript_alerts",
@@ -50,7 +50,7 @@ export default class Page {
       "Slow Resources": "slow",
       "Sortable Data Tables": "tables",
       "Status Codes": "status_codes",
-      Typos: "typos",
+      "Typos": "typos",
       "WYSIWYG Editor": "tinymce",
     };
   }
@@ -68,8 +68,9 @@ export default class Page {
    * Opens a sub page of the page
    * @param path path of the sub page (e.g. /path/to/page.html)
    */
-  open(path = "") {
-    if (path in this.paths) return this.open(this.paths[path]);
-    return browser.url(`${this.base}/${path}`);
+  async open(path = "") {
+    if (path in this.paths)
+      return this.open(this.paths[path]);
+    return await browser.url(`${this.base}/${path}`);
   }
 }
