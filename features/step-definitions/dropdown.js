@@ -10,5 +10,5 @@ When(/^I select "(.+)"$/, async function (option) {
 
 Then(/^The dropdown value should be "(.+)"$/, async function (option) {
   console.log(world);
-  expect(await dropdownPage.selectedOptionText()).toBe(option);
+  await expect(await dropdownPage.selectedOptionText()).toBe(option);
 });
