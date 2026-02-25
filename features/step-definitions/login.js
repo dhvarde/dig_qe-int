@@ -1,4 +1,4 @@
-import { When, Then } from "@wdio/cucumber-framework";
+import {Given, When, Then } from "@wdio/cucumber-framework";
 import { expect } from "@wdio/globals";
 
 import LoginPage from "../pageobjects/login.page.js";
@@ -12,3 +12,7 @@ Then(/^I should see a flash message saying (.*)$/, async (message) => {
   await expect(await SecurePage.flashAlert).toBeExisting();
   await expect(await SecurePage.flashAlert.getText()).toContain(message);
 });
+
+Given('I am on the login page', async function () {
+  await LoginPage.open();
+})

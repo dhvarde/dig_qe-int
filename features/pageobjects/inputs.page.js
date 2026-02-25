@@ -1,4 +1,5 @@
-class DropdownPage {
+import Page from "./page.js";
+class InputsPage extends Page{
   get elements() {
     return {
       header: () => $("h3"),
@@ -13,6 +14,10 @@ class DropdownPage {
   async test(value) {
     await expect(await this.elements.input()).toHaveValue(value.toString());
   }
+
+  async open() {
+    await super.open("inputs");
+  }
 }
 
-export default new DropdownPage();
+export default new InputsPage();

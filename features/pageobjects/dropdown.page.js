@@ -1,4 +1,5 @@
-class DropdownPage {
+import Page from "./page.js";
+class DropdownPage extends Page{
   get elements() {
     return {
       header: () => $("h3"),
@@ -15,6 +16,10 @@ class DropdownPage {
   async selectedOptionText() {
     const selectedOption = await this.elements.selectedOption();
     return await selectedOption.getText();
+  }
+
+  async open() {
+    await super.open("dropdown");
   }
 }
 

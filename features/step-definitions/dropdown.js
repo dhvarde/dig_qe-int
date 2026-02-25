@@ -1,6 +1,10 @@
-import { When, Then, world } from "@cucumber/cucumber";
+import { Given, When, Then, world } from "@cucumber/cucumber";
 import { expect } from "@wdio/globals";
 import dropdownPage from "../pageobjects/dropdown.page.js";
+
+Given('I am on the Dropdown page', async function() {
+  await dropdownPage.open();
+});
 
 When(/^I select "(.+)"$/, async function (option) {
   world.hello = "hello";
