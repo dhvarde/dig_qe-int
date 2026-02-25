@@ -1,11 +1,11 @@
 Feature: The Internet Guinea Pig Website
 
   @CHECKBOXES
-  Scenario Outline: As a user, I can log into the secure area
+  Scenario Outline: As a user, I can log into the checkbox section and select checkboxes
     Given I am on the Checkboxes page
     When I select checkbox <num>
-    Then The checkbox should be checked
+    Then The checkbox <num> should be "<status>"
       Examples:
-      | num |
-      |   1 |
-      |   2 |
+      | num | status |
+      |   1 | unchecked | 
+      |   2 | unchecked |
